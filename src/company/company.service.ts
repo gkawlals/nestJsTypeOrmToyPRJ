@@ -15,12 +15,12 @@ export class CompanyService {
         // private userService: UserService // 타 서비스 import 방법
     ){}
 
-    async getCompanyList(userId: number): Promise<Company[]>{
-        return this.companyRepository.find({where: {
-            owner: {id : userId}},
-            relations: ['owner']
-        })
-    }
+    // async getCompanyList(userId: number): Promise<Company[]>{
+    //     return this.companyRepository.find({where: {
+    //         owner: {id : userId}},
+    //         relations: ['owner']
+    //     })
+    // }
 
     async addCompany(company: Partial<Company>): Promise<Company>{
         const mysqlFormattedDate = new Date().toISOString().slice(0, 19).replace('T', ' ');

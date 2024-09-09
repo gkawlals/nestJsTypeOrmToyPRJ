@@ -9,12 +9,12 @@ export class CompanyController {
     private readonly logger = new Logger(CompanyService.name);
     // 업장에 대한 내용을 CRUD
 
-    @Post('List')
-    async getCompanyList(userId: number): Promise<Company[]>{
-        this.logger.log('get company list controller start')
-        this.logger.log('get company list controller end')
-        return this.companyService.getCompanyList(userId)
-    }
+    // @Post('List')
+    // async getCompanyList(userId: number): Promise<Company[]>{
+    //     this.logger.log('get company list controller start')
+    //     this.logger.log('get company list controller end')
+    //     return this.companyService.getCompanyList(userId)
+    // }
 
     @Post('add')
     async addCompany(@Body() compnay: Partial<Company>): Promise<Company>{

@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Task } from './tasks.entity';
 import { ProjectDocument } from './project-document.entity';
+import { LocalDate } from 'js-joda';
 
 @Entity()
 export class Project {
@@ -30,4 +31,15 @@ export class Project {
 
   @OneToMany(() => ProjectDocument, (document) => document.project)
   documents: ProjectDocument[];
+  
+  static dataTypeParsing(request: any): Project{
+    const project = new Project
+    project.name = request.name;
+    project.description = request.description;
+    project.start_date = new Date(request.start_date);
+    project.end_date = request.end_date ? new Date(request.end_date) : null;
+    project.deployment_date = request.deployment_date ? new Date(request.deployment_date) : null;
+    project.status = request.status || '진행 중';
+    return project
+  }
 }
