@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Task } from './tasks.entity';
 import { ProjectDocument } from './project-document.entity';
-import { LocalDate } from 'js-joda';
+import { WBSColumn } from './wbsColumn.entity';
 
 @Entity()
 export class Project {
@@ -31,6 +31,10 @@ export class Project {
 
   @OneToMany(() => ProjectDocument, (document) => document.project)
   documents: ProjectDocument[];
+  
+
+  @OneToMany(() => WBSColumn, (wbsColumn) => wbsColumn.project)
+  wbsColumns: WBSColumn[];
   
   static dataTypeParsing(request: any): Project{
     const project = new Project

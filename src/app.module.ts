@@ -6,6 +6,10 @@ import { UserModule } from './user/user.module';
 import { ProjectModule } from './project/project.module';
 import { TaskModule } from './task/task.module';
 import { NotificationModule } from './notification/notification.module';
+import { AppService } from './app.service';
+import { AppController } from './app.controller';
+import { WbsValueModule } from './wbs-value/wbs-value.module';
+import { WbsColumnModule } from './wbs-column/wbs-column.module'; 
 
 @Module({
   imports: [
@@ -25,7 +29,10 @@ import { NotificationModule } from './notification/notification.module';
     EmployeeModule,
     ProjectModule,
     TaskModule, 
-    NotificationModule
+    NotificationModule, 
+    WbsValueModule, WbsColumnModule
   ],
+  controllers: [AppController],
+  providers: [AppService]
 })
 export class AppModule {}

@@ -1,5 +1,4 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { Company } from './company.entity';// 
 import { Task } from './tasks.entity';
 
 
